@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaveLab | Microwave & Infrared DIY Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>WaveLab</h1>
+        <p>Interactive Exploration of Unguided Transmission Media</p>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="theory.html">Theory</a>
+        <a href="experiments.html">Engineering Lab</a>
+        <a href="applications.html">Applications</a>
+        <a href="quiz.html">Quiz</a>
+    </nav>
+
+    <section class="content">
+
+        <div class="card">
+            <h2>Welcome to the Virtual Wave Laboratory</h2>
+            <p>
+                WaveLab is an interactive learning platform to understand how <b>Microwaves</b> and <b>Infrared</b> waves
+                are used in <b>Computer Networks</b> for wireless communication.
+                You can visualize how signals propagate, how obstacles affect transmission, and how parameters like
+                <b>frequency, power, noise, path loss, and bandwidth</b> influence performance.
+            </p>
+
+            <p style="margin-top: 1rem;">
+                This lab covers important CN concepts such as:
+                <b>Line of Sight (LoS), Noise & Interference, Path Loss, Propagation Delay, and Bandwidth vs Frequency</b>.
+            </p>
+
+            <div style="margin-top: 2rem;">
+                <button onclick="location.href='theory.html'">📘 Start Learning</button>
+                <button onclick="location.href='experiments.html'" style="background: var(--primary-magenta);">
+                    🧪 Go to DIY Lab
+                </button>
+                <button onclick="location.href='quiz.html'" style="margin-left: 1rem;">
+                    📝 Take Quiz
+                </button>
+            </div>
+        </div>
+
+        <div class="spectrum">
+            <div class="wave-card microwave-card">
+                <h3>Microwaves</h3>
+                <p>1 GHz - 1 THz</p>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 1rem;">
+                    Used in <b>Terrestrial</b> and <b>Satellite</b> communication.<br>
+                    ✔ Long-range &nbsp; ✔ High data rate &nbsp; ✔ Line-of-Sight required
+                </p>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    Affected by rain, obstacles, atmospheric attenuation (Path Loss).
+                </p>
+            </div>
+
+            <div class="wave-card infrared-card">
+                <h3>Infrared</h3>
+                <p>300 GHz - 400 THz</p>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 1rem;">
+                    Used for <b>short-range indoor communication</b>.<br>
+                    ✔ Secure &nbsp; ✔ High speed &nbsp; ✖ Cannot penetrate walls
+                </p>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    Used in TV remotes, sensors, short-range device communication.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h2>What You Can Do in This Lab</h2>
+            <ul style="line-height: 1.8; color: var(--text-secondary);">
+                <li>🎯 Visualize <b>Terrestrial Microwave</b> and <b>Satellite Microwave</b> links</li>
+                <li>📡 Simulate <b>Infrared short-range transmission</b></li>
+                <li>🌧️ Add <b>obstacles, rain, noise, interference</b> and see the effect</li>
+                <li>📉 Observe <b>Path Loss, Signal Strength, Propagation Delay</b></li>
+                <li>🧠 Learn by doing instead of just reading theory</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Created with &hearts; for DIY Learners | &copy; 2026 WaveLab</p>
+    </footer>
+
+</body>
+
+</html>
