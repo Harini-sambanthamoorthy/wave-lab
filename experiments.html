@@ -1,188 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Wave Lab | WaveLab</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        .spectrum-hud {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            background: rgba(15, 23, 42, 0.8);
-            padding: 2rem;
-            border-radius: 1.5rem;
-            border: 1px solid rgba(34, 211, 238, 0.2);
-            backdrop-filter: blur(20px);
-        }
-
-        .hud-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .hud-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            font-weight: 800;
-        }
-
-        .hud-value {
-            font-family: 'Courier New', monospace;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-cyan);
-        }
-
-        #masterFrequencySlider {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            height: 12px;
-            background: linear-gradient(to right, #22d3ee, #f472b6);
-            border-radius: 6px;
-            outline: none;
-            margin: 2rem 0;
-            cursor: pointer;
-        }
-
-        #masterFrequencySlider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        #masterFrequencySlider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-
-        .range-markers {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: -1rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .canvas-container {
-            position: relative;
-            border-radius: 2rem;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: #000;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-        }
-
-        #unifiedCanvas {
-            width: 100%;
-            height: 300px;
-        }
-
-        .mode-indicator {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
-            background: rgba(34, 211, 238, 0.1);
-            border: 1px solid var(--primary-cyan);
-            color: var(--primary-cyan);
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        #interactionCanvas {
-            width: 100%;
-            height: 150px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Universal Spectrum Lab</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    canvas { border: 1px solid #ccc; display: block; margin-bottom: 10px; }
+    .controls { margin-bottom: 10px; }
+</style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Universal Spectrum Lab</h1>
-        <p>Unified Signal Generation from GHz to THz</p>
-    </header>
+<h2>Universal Spectrum Lab v1.0</h2>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="theory.html">Theory</a>
-        <a href="experiments.html" class="active">Engineering Lab</a>
-        <a href="applications.html">Applications</a>
-        <a href="quiz.html">Quiz</a>
-    </nav>
+<div class="controls">
+    <label for="scenarioSelect">Communication Scenario:</label>
+    <select id="scenarioSelect">
+        <option value="Tower-Tower">Tower-Tower</option>
+        <option value="Satellite-Tower">Satellite-Tower</option>
+        <option value="Device-Device">Device-Device</option>
+    </select>
 
-    <section class="content">
+    <label for="freqSlider">Frequency:</label>
+    <input type="range" id="freqSlider" min="1" max="10" value="1">
+    <span id="freqDisplay">1</span>
+</div>
 
-        <!-- Unified Controls -->
-        <div class="spectrum-hud">
-            <div class="hud-item">
-                <span class="hud-label">Frequency (f)</span>
-                <span id="freqDisplay" class="hud-value">1.00 GHz</span>
-            </div>
-            <div class="hud-item">
-                <span class="hud-label">Wavelength (λ)</span>
-                <span id="waveDisplay" class="hud-value">30.0 cm</span>
-            </div>
-            <div class="hud-item">
-                <span class="hud-label">Photon Energy (E)</span>
-                <span id="energyDisplay" class="hud-value">4.1 μeV</span>
-            </div>
-            <div class="hud-item">
-                <span class="hud-label">Wave Regime</span>
-                <span id="regimeDisplay" class="hud-value" style="color: var(--primary-magenta)">MICROWAVE</span>
-            </div>
-        </div>
+<canvas id="unifiedCanvas" width="800" height="500"></canvas>
 
-        <input type="range" id="masterFrequencySlider" min="9" max="14.6" step="0.01" value="9">
-        <div class="range-markers">
-            <span>1 GHz (MW)</span>
-            <span>300 GHz (THz Gap)</span>
-            <span>400 THz (IR)</span>
-        </div>
+<div class="instructions">
+    <p>Click on the canvas to emit a wave from that point.</p>
+    <p>Waves interact with obstacles (red boxes) and frequency affects propagation speed.</p>
+</div>
 
-        <!-- Main Wave Canvas -->
-        <div class="canvas-container">
-            <div id="modeTag" class="mode-indicator">Wave Propagation</div>
-            <canvas id="unifiedCanvas"></canvas>
-        </div>
+<script src="spectrum-lab.js"></script>
+<script>
+const lab = new SpectrumLab('unifiedCanvas');
 
-        <!-- Interaction Canvas -->
-        <div class="canvas-container" style="margin-top: 2rem;">
-            <canvas id="interactionCanvas"></canvas>
-        </div>
+// Add example obstacles
+lab.addObstacle(new Obstacle(300, 150, 100, 50));
+lab.addObstacle(new Obstacle(500, 300, 150, 75));
 
-        <!-- Physics Log -->
-        <div class="card workbench-card" style="margin-top: 2rem;">
-            <h3>System Physics Log</h3>
-            <p id="physicsLog">Current Wave Properties: Straight line propagation. Demonstration of wave oscillation and interaction at physical scales.</p>
-        </div>
+// Frequency control
+const freqSlider = document.getElementById('freqSlider');
+const freqDisplay = document.getElementById('freqDisplay');
+freqSlider.addEventListener('input', () => {
+    lab.setFrequency(parseFloat(freqSlider.value));
+    freqDisplay.textContent = freqSlider.value;
+});
 
-    </section>
+// Scenario selection
+document.getElementById('scenarioSelect').addEventListener('change', (e) => {
+    lab.setScenario(e.target.value);
+});
 
-    <footer>
-        <p>Universal Wave Lab | © 2026 WaveLab Aerospace</p>
-    </footer>
+// Emit wave on click
+lab.canvas.addEventListener('click', (e) => {
+    const rect = lab.canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    lab.addWave(x, y);
+});
 
-    <script src="js/spectrum-lab.js"></script>
+// Legend
+const ctx = lab.ctx;
+ctx.font = "14px Arial";
+ctx.fillStyle = "black";
+ctx.fillText("Legend: Blue = Tower-Tower, Green = Satellite-Tower, Orange = Device-Device, Red = Obstacle", 10, 490);
+</script>
 
 </body>
-
 </html>
