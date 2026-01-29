@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Theory | WaveLab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Wave Theory</h1>
+        <p>Unguided Transmission Media in Computer Networks</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="theory.html" class="active">Theory</a>
+        <a href="experiments.html">Engineering Lab</a>
+        <a href="applications.html">Applications</a>
+        <a href="quiz.html">Quiz</a>
+    </nav>
+
+    <section class="content">
+
+        <!-- ================= MICROWAVE THEORY ================= -->
+        <div class="card workbench-card">
+            <h2>Microwave Transmission</h2>
+            <p>
+                Microwaves are electromagnetic waves in the frequency range of <b>1 GHz to 1 THz</b>.
+                In <b>Computer Networks</b>, microwave transmission is widely used for <b>long-distance wireless
+                    communication</b> because it supports <b>high data rates</b> and requires <b>no physical cable</b>.
+            </p>
+
+            <p>
+                Microwave communication works mainly on the principle of <b>Line-of-Sight (LoS)</b>, which means the
+                transmitting and receiving antennas must be able to "see" each other without any major obstruction.
+            </p>
+
+            <h3>Types of Microwave Communication</h3>
+
+            <h3>1. Terrestrial Microwave</h3>
+            <p>
+                Terrestrial microwave communication uses <b>ground-based towers</b> with parabolic dish antennas.
+                The signal is transmitted in a straight line from one tower to another, usually with the help of
+                <b>repeater stations</b>.
+            </p>
+
+            <ul>
+                <li><strong>Frequency Range:</strong> Typically 4–6 GHz, 11 GHz, 18 GHz, 21–23 GHz bands.</li>
+                <li><strong>Transmission Type:</strong> Line-of-Sight (LoS).</li>
+                <li><strong>Bandwidth:</strong> High bandwidth, suitable for high-speed data, voice, and video.</li>
+                <li><strong>Advantages:</strong> No cables required, fast deployment, high data rate.</li>
+                <li><strong>Disadvantages:</strong> Affected by rain, fog, and obstacles; requires tall towers.</li>
+            </ul>
+
+            <h3>2. Satellite Microwave</h3>
+            <p>
+                Satellite communication uses an <b>artificial satellite</b> orbiting the Earth as a repeater.
+                The earth station sends a signal to the satellite called the <b>uplink</b>. The satellite amplifies it
+                and sends it back to another earth station called the <b>downlink</b>.
+            </p>
+
+            <ul>
+                <li><strong>Coverage:</strong> Very large area (can cover entire countries or continents).</li>
+                <li><strong>Advantage:</strong> Long-distance communication without many repeaters.</li>
+                <li><strong>Disadvantage:</strong> High propagation delay and high initial cost.</li>
+                <li><strong>Typical Lifetime:</strong> 12–15 years.</li>
+            </ul>
+
+        </div>
+
+        <!-- ================= INFRARED THEORY ================= -->
+        <div class="card workbench-card" style="border-top-color: var(--primary-magenta); margin-top: 2rem;">
+            <h2>Infrared (IR) Transmission</h2>
+            <p>
+                Infrared waves are electromagnetic waves with frequencies between <b>300 GHz and 400 THz</b>.
+                In computer networks, infrared is mainly used for <b>short-range communication</b> inside a room.
+            </p>
+
+            <p>
+                Infrared communication is also a <b>Line-of-Sight</b> or reflected communication and behaves similar to
+                light.
+            </p>
+
+            <h3>Characteristics of Infrared Communication</h3>
+            <ul>
+                <li><strong>Short Range:</strong> Works only over small distances.</li>
+                <li><strong>High Security:</strong> Cannot penetrate walls, so signals stay inside a room.</li>
+                <li><strong>High Data Rate:</strong> Supports very high bandwidth.</li>
+                <li><strong>Limitation:</strong> Affected by sunlight, dust, smoke, and obstacles.</li>
+            </ul>
+
+            <p>
+                Common example: <b>TV remote control, wireless mouse, short-range sensors</b>.
+            </p>
+        </div>
+
+        <!-- ================= CN CONCEPTS ================= -->
+        <div class="card workbench-card" style="margin-top: 2rem;">
+            <h2>Important Concepts in Wireless Communication (CN)</h2>
+
+            <h3>1. Line of Sight (LoS)</h3>
+            <p>
+                Line of Sight means there must be a clear, unobstructed path between transmitter and receiver.
+                Microwave and Infrared both mainly require LoS communication.
+            </p>
+
+            <h3>2. Noise and Interference</h3>
+            <p>
+                Noise is any unwanted signal that disturbs the original signal. Interference occurs when multiple
+                signals overlap. Both reduce signal quality and data rate.
+            </p>
+
+            <h3>3. Path Loss</h3>
+            <p>
+                Path loss refers to the reduction in signal strength as the signal travels through space due to
+                distance, absorption, and obstacles.
+                In microwave systems, path loss increases with <b>distance and frequency</b>.
+            </p>
+
+            <h3>4. Bandwidth vs Frequency</h3>
+            <p>
+                Higher frequency bands generally support <b>higher bandwidth</b> and <b>higher data rates</b>, but they
+                also suffer from <b>higher attenuation</b> and require better Line-of-Sight conditions.
+            </p>
+
+            <h3>5. Propagation Delay</h3>
+            <p>
+                Propagation delay is the time taken by a signal to travel from sender to receiver.
+                Satellite communication has a <b>large propagation delay</b> because the signal travels thousands of
+                kilometers to space and back.
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Engineering Knowledge Base | © 2026 WaveLab</p>
+    </footer>
+</body>
+
+</html>
